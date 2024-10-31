@@ -70,7 +70,7 @@ To run the application locally, follow these steps:
 
 ## Deployed Link
 
-- [CivicAlert Deployed App](https://complaintsapp.onrender.com/process-complaint)
+- https://complaintsapp.onrender.com/process-complaint
 
 ### POST Request for Processing Complaints
 
