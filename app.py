@@ -31,7 +31,7 @@ MAIL_PASSWORD = os.getenv('PASSWORD')
 PROJECT_ID = os.getenv('APPWRITE_PROJECT_ID')
 API_KEY = os.getenv('APPWRITE_API_KEY')
 EXISTING_DATABASE_ID = os.getenv('APP_WRITE_DATABASE_ID')
-EXISTING_COLLECTION_ID = os.getenv('APPWRITE_COLLECTION_ID')
+EXISTING_COLLECTION_ID = os.getenv('APPWRITE_COMPLAINTS_COLLECTION_ID')
 
 # Initialize Appwrite client
 client = Client()
@@ -82,7 +82,7 @@ def process_complaint():
         return {"error": str(e)}, 400  # Handle errors gracefully
 
     upvotes_count = len(complaint.get('upvotes', []))
-    user_email = complaint.get('GOVERNMENT_EMAIL')
+    user_email = os.getenv('GOVERNMENT_EMAIL')
 
     logger.info(f"Upvotes count: {upvotes_count} for complaint ID: {complaint_id}")
 
@@ -99,7 +99,7 @@ def process_complaint():
         """
         
         # Send to admin
-        admin_email = 'shreyasgandhi0607@gmail.com'
+        admin_email =  os.getenv('USER_EMAIL')
         response = send_email(admin_email, "Complaint with High Upvotes", email_body)
         
         # Delete the complaint if email was successful
